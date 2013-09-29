@@ -1,1 +1,33 @@
-"index" 
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fullscreen API</title>
+	<link href='http://fonts.googleapis.com/css?family=Kelly+Slab|Oleo+Script+Swash+Caps:400,700|Amaranth:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div id="page">
+		<h1>ContextMenu API Demo</h1>
+		<div id="content">
+			<p class="instructions">Using Mozilla Firefox, right-click within the gray block below to see my custom menu items at the top of the context menu.  They're functional too!</p>
+			<section contextmenu="myMenu">
+				<p class="menuHolder">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse et ipsum in nisl euismod venenatis eget sit amet lectus. Nam magna massa, mollis a fringilla eu, lobortis at metus. Maecenas et mi est. Donec arcu nunc, scelerisque id dapibus non, commodo et diam. Suspendisse et nisl vel dui tempus semper. Aenean placerat lectus et lectus iaculis posuere. Pellentesque scelerisque, nisi vel ornare adipiscing, massa tellus sodales nulla, quis porttitor purus lorem nec elit. Curabitur aliquam turpis non erat volutpat gravida. Pellentesque in neque odio, a placerat tellus. Proin a quam magna, at vestibulum sem. Integer a ipsum sapien, quis tempor est. Duis quis varius lectus.</p>
+				<!-- actions -->
+				<script>
+					function goTo(url) { window.open(url, "shareWindow"); }
+				</script>
+				<!-- create the menu -->
+				<menu type="context" id="myMenu">
+					<menuitem label="Refresh" onclick="window.location.reload();" icon="/images/refresh-icon.png"></menuitem>
+					<menuitem label="Skip to comments" onclick="window.location='#comments';" icon="/images/comment-icon.png"></menuitem>
+					<menu label="Share on..." icon="/images/share-icon.png">
+						<menuitem label="Twitter" onclick="goTo('//twitter.com/intent/tweet?text=' + document.title + ':  ' + window.location.href);" icon="/images/twitter-icon.png"></menuitem>
+						<menuitem label="Facebook" onclick="goTo('//facebook.com/sharer/sharer.php?u=' + window.location.href);" icon="/images/facebook-icon.png"></menuitem>
+					</menu>
+				</menu>
+			</section>
+		</div>
+	</div>
+</body>
+</html>
